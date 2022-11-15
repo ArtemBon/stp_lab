@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   get :register, to: 'users#new'
+
+  post :send_emails, to: 'reports#create'
 end
