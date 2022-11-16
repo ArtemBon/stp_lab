@@ -10,6 +10,17 @@ class UsersController < ApplicationController
     render :new, status: :unprocessable_entity
   end
 
+  def destroy
+    user = User.find(params[:id])
+
+    if params[:token] == user.token
+      user.destroy
+      redirect_to register_path, notice: "User was successfully unsubscribed."
+    else
+      redirect_to register_path, notice: "Wrong token."
+    end
+  end
+
   private
 
   def user_params

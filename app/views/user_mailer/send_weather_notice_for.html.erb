@@ -7,3 +7,8 @@
 <p>Видимість: <%= @visibility %> м</p>
 <p>Вологість: <%= @humidity %>%</p>
 <p>Хмарність: <%= @humidity %>%</p>
+<br>
+<p>
+  Відписатись від розсилки:
+  <%= link_to "Unsubscribe", unsubscribe_user_url(@user, token: @user.token) %>
+</p>
